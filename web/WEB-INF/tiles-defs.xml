@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+    <definition name="file" path="/home.jsp">
+        <put name="header" value="/header.jsp"/>
+        <put name="rightmenu" value="/rightmenu.jsp"/>
+        <put name="body" value="/body.jsp"/>
+        <put name="footer" value="/footer.jsp"/>
+    </definition>
+
+    <definition name="server" extends="file">
+        <put name="body" value="/Servers.jsp"/>
+    </definition>
+
+    <definition name="aboutus" extends="file">
+        <put name="body" value="/About.jsp"/>
+    </definition>
+
+    <definition name="signin" extends="file">
+        <put name="body" value="/loginpage.jsp"/>
+    </definition>
+
+    <definition name="signinfail" extends="file">
+        <put name="body" value="/signinfail.jsp"/>
+    </definition>
+
+    <definition name="forgotPwdPage" extends="file">
+        <put name="body" value="/forgotpwd.jsp"/>
+    </definition>
+
+    <definition name="pwdRetrievalSuccess" extends="file">
+        <put name="body" value="/pwdRetrieved.jsp"/>
+    </definition>
+
+    <definition name="pwdRetrievalFail" extends="file">
+        <put name="body" value="/pwdNotRetrieved.jsp"/>
+    </definition>
+
+    <definition name="registration" extends="file">
+        <put name="body" value="/registrationform.jsp"/>
+    </definition>
+
+    <definition name="mailfailed" extends="file">
+        <put name="body" value="/mailfail.jsp"/>
+    </definition>
+
+    <definition name="error" extends="file">
+        <put name="body" value="/ErrorPage.jsp"/>
+    </definition>
+
+    <definition name="downloadsuccess" extends="file">
+        <put name="body" value="/downloadsuccess.jsp"/>
+    </definition>
+
+    <definition name="downloaderror" extends="file">
+        <put name="body" value="/downloaderror.jsp"/>
+    </definition>
+
+    <definition name="editProfile" extends="file">
+        <put name="body" value="/editprofile.jsp"/>
+    </definition>
+
+    <definition name="pwdChangeSuccess" extends="file">
+        <put name="body" value="/pwdChangeSuccess.jsp"/>
+    </definition>
+    <definition name="pwdChangeFail" extends="file">
+        <put name="body" value="/pwdChangeFail.jsp"/>
+    </definition>
+    <!-- Admin -->
+
+    <definition name="adminhome" extends="file">
+        <put name="header" value="/headeradmin.jsp"/>
+        <put name="body" value="/adminhome.jsp"/>
+    </definition>
+
+    <definition name="logout" extends="file">
+        <put name="body" value="/logoutpage.jsp"/>
+    </definition>
+
+    <definition name="logoutfail" extends="file">
+        <put name="body" value="/logoutFailPage.jsp"/>
+    </definition>
+
+    <definition name="update" extends="file">
+        <put name="body" value="/update.jsp"/>
+    </definition>
+
+    <definition name="crawlerror" extends="adminhome">
+        <put name="body" value="/crawlerror.jsp"/>
+    </definition>
+
+    <definition name="crawlsuccess" extends="adminhome">
+        <put name="body" value="/crawlsuccess.jsp"/>
+    </definition>
+
+    <definition name="adminEditProfile" extends="adminhome">
+        <put name="body" value="/adminEditProfile.jsp"/>
+    </definition>
+
+    <definition name="adminPwdChangeSuccess" extends="adminhome">
+        <put name="body" value="/pwdChangeSuccess.jsp"/>
+    </definition>
+
+    <definition name="adminPwdChangeFail" extends="adminhome">
+        <put name="body" value="/pwdChangeFail.jsp"/>
+    </definition>
+
+    <definition name="createUser" extends="adminhome">
+        <put name="body" value="/createuser.jsp"/>
+    </definition>
+
+    <definition name="useraddsuccess" extends="adminhome">
+        <put name="body" value="/useraddsuccess.jsp"/>
+    </definition>
+
+    <definition name="useraddfail" extends="adminhome">
+        <put name="body" value="/useraddfail.jsp"/>
+    </definition>
+
+    <definition name="adminUpdateServers" extends="adminhome">
+        <put name="body" value="/adminServers.jsp"/>
+    </definition>
+
+    <definition name="adminAddServer" extends="adminhome">
+        <put name="body" value="/adminAddServer.jsp"/>
+    </definition>
+    <!--
+    actions for web search
+    -->
+    <definition name="web" extends="file">
+        <put name="header" value="headerweb.jsp"/>
+        <put name="footer" value="footerweb.jsp"/>
+        <put name="body" value="bodyweb.jsp"/>
+    </definition>
+
+    <definition name="aboutusweb" extends="web">
+        <put name="body" value="/About.jsp"/>
+    </definition>
+
+    <definition name="signinweb" extends="web">
+        <put name="body" value="/loginpage.jsp"/>
+    </definition>
+
+    <definition name="registrationweb" extends="web">
+        <put name="body" value="/registrationform.jsp"/>
+    </definition>
+
+    <definition name="logoutweb" extends="web">
+        <put name="body" value="/logoutpage.jsp"/>
+    </definition>
+
+    <definition name="logoutfailweb" extends="web">
+        <put name="body" value="/logoutFailPage.jsp"/>
+    </definition>
+
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>

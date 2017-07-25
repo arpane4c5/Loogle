@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="CreateUserActionForm" type="formbeans.CreateUserActionForm"/>
+        <form-bean name="ChangePasswordActionForm" type="formbeans.ChangePasswordActionForm"/>
+        <form-bean name="ForgotPasswordActionForm" type="formbeans.ForgotPasswordActionForm"/>
+        <form-bean name="RegisterActionForm" type="formbeans.RegisterActionForm"/>
+        <form-bean name="LoginActionForm" type="formbeans.LoginActionForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+        
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Welcome" forward="/index.jsp"/>
+        <action path="/fileSearch" forward="file"/>
+        <action path="/servers" forward="server"/>
+        <action path="/updateSuccess" forward="update"/>
+
+        <action path="/about" forward="aboutus"/>
+        <action path="/register" forward="registration"/>
+        <action path="/registerweb" forward="registrationweb"/>
+        <action path="/mailfailed" forward="mailfailed"/>
+        <action path="/error" forward="error"/>
+        <action path="/crawlerror" forward="crawlerror"/>
+        <action path="/crawlsuccess" forward="crawlsuccess"/>
+        <action path="/downloadsuccess" forward="downloadsuccess"/>
+        <action path="/downloaderror" forward="downloaderror"/>
+        <action path="/signin" forward="signin"/>
+        <action path="/signinweb" forward="signinweb"/>
+        <action path="/signinfail" forward="signinfail"/>
+        <action path="/admin" forward="adminhome"/>
+        <action path="/adminhome" forward="adminhome"/>
+        <action path="/logout" forward="logout"/>
+        <action path="/logoutfail" forward="logoutfail"/>
+        <action path="/logoutweb" forward="logoutweb" />
+        <action path="/logoutfailweb" forward="logoutfailweb"/>
+        <action path="/forgotPwdPage" forward="forgotPwdPage"/>
+        <action path="/pwdRetrievalSuccess" forward="pwdRetrievalSuccess"/>
+        <action path="/pwdRetrievalFail" forward="pwdRetrievalFail"/>
+        <action path="/editProfile" forward="editProfile"/>
+        <action path="/adminEditProfile" forward="adminEditProfile"/>
+        <action path="/pwdChangeSuccess" forward="pwdChangeSuccess"/>
+        <action path="/pwdChangeFail" forward="pwdChangeFail"/>
+        <action path="/adminPwdChangeSuccess" forward="adminPwdChangeSuccess"/>
+        <action path="/adminPwdChangeFail" forward="adminPwdChangeFail"/>
+        <action path="/createUser" forward="createUser"/>
+        <action path="/useraddsuccess" forward="useraddsuccess"/>
+        <action path="/useraddfail" forward="useraddfail"/>
+        <action path="/adminUpdateServers" forward="adminUpdateServers"/>
+        <action path="/adminAddServer" forward="adminAddServer"/>
+
+        <action path="/webSearch" forward="web"/>
+        <action path="/aboutusweb" forward="aboutusweb"/>
+        <action path="/Logout" scope="request" forward="intranetFileSearch.Logout" />
+
+        <action path="/Login" input="/signin.do" name="LoginActionForm" scope="session" type="actions.LoginAction" validate="true">
+            <forward name="success" path="/fileSearch.do"/>
+            <forward name="fail" path="/signinfail.do" />
+        </action>
+
+        <action path="/adminlogin" name="LoginActionForm" scope="request" type="actions.AdminLoginAction" validate="true" input="/admin.do">
+            <forward name="success" path="/adminhome.do"/>
+            <forward name="fail" path="/signinfail.do"/>
+        </action>
+
+        <action path="/registeruser" name="RegisterActionForm" scope="request" type="actions.RegisterAction" validate="true" input="/register.do">
+            <forward name="success" path="/servers.do"/>
+            <forward name="fail" path="/register.do"/>
+            <forward name="mailFailed" path="/mailfailed.do"/>
+        </action>
+
+        <action path="/signout" type="actions.LogoutUser">
+            <forward name="success" path="/logout.do"/>
+            <forward name="fail" path="/logoutfail.do"/>
+        </action>
+
+        <action path="/UpdateSubscribe" type="actions.SubscribeAction">
+            <forward name="success" path="/updateSuccess.do"/>
+            <forward name="fail" path="/error.do"/>
+        </action>
+
+        <action path="/crawl" type="actions.CrawlAction" input="/adminhome.do" >
+            <forward name="success" path="/crawlsuccess.do"/>
+            <forward name="fail" path="/crawlerror.do"/>
+        </action>
+
+        <action input="/fileSearch.do" path="/SMBDownload" type="actions.SMBFileDownloadAction">
+            <forward name="success" path="/downloadsuccess.do"/>
+            <forward name="fail" path="/downloaderror.do"/>
+        </action>
+        
+        <action input="/fileSearch.do" path="/FTPDownload" type="actions.FTPFileDownloadAction">
+            <forward name="success" path="/downloadsuccess.do"/>
+            <forward name="fail" path="/downloaderror.do"/>
+        </action>
+
+        <action input="/forgotPwdPage.do" name="ForgotPasswordActionForm" path="/forgotPwd" scope="request" type="actions.ForgotPasswordAction">
+            <forward name="success" path="/pwdRetrievalSuccess.do"/>
+            <forward name="fail" path="/pwdRetrievalFail.do"/>
+        </action>
+        
+        <action input="/editProfile.do" name="ChangePasswordActionForm" path="/changePwd" scope="request" type="actions.ChangePasswordAction">
+            <forward name="success" path="/pwdChangeSuccess.do"/>
+            <forward name="fail" path="/pwdChangeFail.do"/>
+        </action>
+
+        <action input="/adminEditProfile.do" name="ChangePasswordActionForm" path="/adminChangePwd" scope="request" type="actions.AdminChangePasswordAction">
+            <forward name="success" path="/adminPwdChangeSuccess.do"/>
+            <forward name="fail" path="/adminPwdChangeFail.do"/>
+        </action>
+
+        <action path="/FTPManualCrawl" type="actions.FTPManualCrawlAction">
+            <forward name="success" path="/crawlsuccess.do" />
+            <forward name="fail" path="/crawlerror.do" />
+        </action>
+
+        <action path="/webManualCrawl" type="actions.WebManualCrawlAction">
+            <forward name="success" path="/crawlsuccess.do" />
+            <forward name="fail" path="/crawlerror.do" />
+        </action>
+
+        <action path="/SMBManualCrawl" type="actions.SMBManualCrawlAction">
+            <forward name="success" path="/crawlsuccess.do" />
+            <forward name="fail" path="/crawlerror.do" />            
+        </action>
+
+        <action input="/createUser.do" name="CreateUserActionForm" path="/adduser" scope="request" type="actions.CreateUserAction">
+            <forward name="success" path="/useraddsuccess.do"/>
+            <forward name="fail" path="/useraddfail.do"/>
+        </action>
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

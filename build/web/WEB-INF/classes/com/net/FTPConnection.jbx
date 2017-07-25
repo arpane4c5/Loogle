@@ -1,0 +1,21 @@
+[PropertyInfo]
+ACTIVE_MODE,int,false,false, , ,false,<default>
+connectMode,int,false,false, , ,false,<default>
+contentLength,int,false,false, , ,false,<default>
+in,InputStream,false,false, , ,true,<default>
+lastMessage,String,false,false, , ,true,<default>
+location,URL,false,false, , ,false,<default>
+logWriter,PrintStream,false,false, , ,true,<default>
+ok,boolean,false,false, , ,true,<default>
+out,OutputStream,false,false, , ,true,<default>
+PASV_MODE,int,false,false, , ,false,<default>
+sock_control,Socket,false,false, , ,false,<default>
+sock_data,Socket,false,false, , ,false,<default>
+timeout,int,false,false, , ,false,<default>
+welcome,String,false,false, , ,false,<default>
+writer,Writer,false,false, , ,true,<default>
+[IconNames]
+
+
+
+
